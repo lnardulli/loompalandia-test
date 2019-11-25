@@ -1,0 +1,28 @@
+version: "2.1"
+services:
+  mysqlloompalandia:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=loompalandia
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+  
+  loompalandia-backend:
+    image: loompalandia-backend:latest
+    environment:
+          - MYSQL_ROOT_PASSWORD=admin
+          - MYSQL_DATABASE=loompalandia
+          - MYSQL_HOST=mysqlloompalandia
+          - MYSQL_PORT=3306
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysqlloompalandia:
+        condition: service_healthy
+ 
+  
