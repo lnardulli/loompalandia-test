@@ -23,4 +23,4 @@ docker-compose up
 | /v1/api/list  | GET |  ?page={page}&size={size} |
 | /v1/api/full/{id}     |   GET  | {id} |
 | /v1/api/create      |    POST |  ```{"name": string, "age": int, "job": string, "height": int, "weight": int, description: string}``` |
-| /v1/api/update      |    PUT |  ```{"id": int:"name": string, "age": int, "job": string, "height": int, "weight": int, description: string}``` |
+| /v1/api/update/{id}      |    PUT |  ```{"name": string, "age": int, "job": string, "height": int, "weight": int, description: string}``` |
