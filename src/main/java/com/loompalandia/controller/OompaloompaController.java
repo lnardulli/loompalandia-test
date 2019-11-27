@@ -35,9 +35,9 @@ public class OompaloompaController {
         return new ResponseEntity<>(oompaloompaCreate, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
-    public  @ResponseBody ResponseEntity<Void> update(@RequestBody Oompaloompa oompaloompa) {
-        oompaloompaService.update(oompaloompa);
+    @PutMapping("/update/{id}")
+    public  @ResponseBody ResponseEntity<Oompaloompa> update(@PathVariable("id") Long id, @RequestBody Oompaloompa oompaloompa) {
+        oompaloompaService.update(id, oompaloompa);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

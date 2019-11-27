@@ -1,27 +1,18 @@
 package com.loompalandia.handler;
 
+import java.util.Date;
+
 public class Error {
 
-	private String message;
-	private int code;
-	private String stackTrace;
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	public int getCode() {
-		return code;
-	}
-	public void setCode(int code) {
-		this.code = code;
-	}
-	public String getStackTrace() {
-		return stackTrace;
-	}
-	public void setStackTrace(String stackTrace) {
-		this.stackTrace = stackTrace;
-	}
+		private Date timestamp;
+		private String message;
+		private String details;
+
+		public Error(Date timestamp, String message, String details) {
+			super();
+			this.timestamp = timestamp;
+			this.message = message;
+			this.details = details;
+		}
 
 }

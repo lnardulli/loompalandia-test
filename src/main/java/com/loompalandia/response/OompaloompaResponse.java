@@ -2,14 +2,24 @@ package com.loompalandia.response;
 
 public class OompaloompaResponse {
 
+    private long id;
     private String name;
     private Integer age;
     private String job;
 
-    public OompaloompaResponse(String name, Integer age, String job) {
+    public OompaloompaResponse(Long id, String name, Integer age, String job) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.job = job;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
