@@ -14,6 +14,7 @@ services:
   
   loompalandia-backend:
     image: loompalandia-backend:latest
+    container_name: my-web-container
     environment:
           - MYSQL_ROOT_PASSWORD=admin
           - MYSQL_DATABASE=loompalandia

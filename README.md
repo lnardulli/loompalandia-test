@@ -7,7 +7,11 @@ This is an application on spring boot to manage the ​Oompa Loompa's crew.
  - spring-boot-starter-data-jpa
  - spring-boot-starter-web
  - spring-boot-starter-test
-  
+ - org.projectlombok
+ - org.mapstruct
+ - springfox-swagger2
+ - com.h2database
+
 ### Building
 
 mvn clean install
@@ -15,6 +19,10 @@ mvn clean install
 docker build -t loompalandia-backend .
 
 docker-compose up
+
+### Swagger url
+
+http://localhost:8080/swagger-ui.html#
 
 ### URL rest
                     
