@@ -1,18 +1,25 @@
 package com.loompalandia.handler;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
+import java.util.List;
 
-public class Error {
+import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 
-		private Date timestamp;
-		private String message;
-		private String details;
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public @Data class Error
+{
+	//General error message about nature of error
+	private String message;
 
-		public Error(Date timestamp, String message, String details) {
-			super();
-			this.timestamp = timestamp;
-			this.message = message;
-			this.details = details;
-		}
+	//Specific errors in API request processing
+	private List<String> details;
 
 }

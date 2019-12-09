@@ -1,6 +1,6 @@
 package com.loompalandia;
 
-import com.loompalandia.repository.OompaloompaRepository;
+import com.loompalandia.repository.OompaloompaJpaRepositoryImp;
 import com.loompalandia.entity.Oompaloompa;
 import org.junit.After;
 import org.junit.Before;
@@ -16,15 +16,15 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DataJpaTest
 @RunWith(SpringRunner.class)
+@DataJpaTest
 class LoompalandiaApplicationTes2t {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
-    private OompaloompaRepository oompaloompaRepository;
+    private OompaloompaJpaRepositoryImp oompaloompaRepository;
 
     @Before
     public void before() {
@@ -34,7 +34,7 @@ class LoompalandiaApplicationTes2t {
     @Test
     public void createOompaloompaRepository() {
 
-        Oompaloompa oompaloompa = oompaloompaRepository.save(new Oompaloompa("Johnny Depp", 37, "actor", 200, 123, "description"));
+        Oompaloompa oompaloompa = oompaloompaRepository.save(new Oompaloompa(null, "Johnny Depp", 37, "actor", 200, 123, "description"));
 
         assertEquals("Johnny Depp", oompaloompa.getName());
         assertEquals(37, oompaloompa.getAge());
@@ -46,7 +46,7 @@ class LoompalandiaApplicationTes2t {
     @Test
     public void getByIdOompaloompaRepository() {
 
-        oompaloompaRepository.save(new Oompaloompa("Willy Wonka", 37, "job", 200, 123, "description"));
+        oompaloompaRepository.save(new Oompaloompa(null, "Willy Wonka", 37, "job", 200, 123, "description"));
 
         Oompaloompa oompaloompa = oompaloompaRepository.findById(2L).get();
 
@@ -56,8 +56,8 @@ class LoompalandiaApplicationTes2t {
     @Test
     public void listOompaloompaRepository() {
 
-        oompaloompaRepository.save(new Oompaloompa("Johnny Depp", 70, "job", 200, 123, "description"));
-        oompaloompaRepository.save(new Oompaloompa("Willy Wonka", 71, "job", 200, 123, "description"));
+        oompaloompaRepository.save(new Oompaloompa(null, "Johnny Depp", 70, "job", 200, 123, "description"));
+        oompaloompaRepository.save(new Oompaloompa(null, "Willy Wonka", 71, "job", 200, 123, "description"));
 
         List<Oompaloompa> oompaloompaList = oompaloompaRepository.findAll();
 
@@ -71,7 +71,7 @@ class LoompalandiaApplicationTes2t {
     @Test
     public void updateOompaloompaRepository() {
 
-        oompaloompaRepository.save(new Oompaloompa("Willy Wonka", 37, "job", 200, 123, "description"));
+        oompaloompaRepository.save(new Oompaloompa(null, "Willy Wonka", 37, "job", 200, 123, "description"));
 
         List<Oompaloompa> oompaloompaList = oompaloompaRepository.findAll();
 
